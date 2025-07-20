@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sakura Tarot</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Iconos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+<header>
+  <div class="header-content" style="display: flex; align-items: center; justify-content: space-between;">
+    <!-- Logo enlazado a index.html -->
+    <a href="index.html" aria-label="Volver a la página principal">
+      <img src="assets/logo.png" alt="Logo Sakura" class="logo" style="height: 50px;" />
+    </a>
+
+    
+    <nav>
+      <ul style="list-style: none; display: flex; gap: 1.5em; margin: 0; padding: 0;">
+        <!-- <li>
+          <a href="./pages/favorites.html" class="nav-link" aria-label="Página de Favoritos">Favoritos</a>
+        </li> -->
+        <li>
+          <a href="./pages/documentation.html" class="nav-link" aria-label="Página de Documentación">Documentación</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <main>
+    <section id="reading" aria-label="Cartas seleccionadas para la lectura">
+      <h2>Tu Lectura</h2>
+      <div id="selected-cards">
+        <div class="slot" data-slot="past" aria-live="polite" tabindex="0">Pasado</div>
+        <div class="slot" data-slot="present" aria-live="polite" tabindex="0">Presente</div>
+        <div class="slot" data-slot="future" aria-live="polite" tabindex="0">Futuro</div>
+      </div>
+
+      <div class="centered-btn" style="display: flex; gap: 1em; justify-content: center; align-items: center;">
+  <button id="reveal-btn" disabled aria-disabled="true" aria-label="Mostrar el significado de las cartas">
+    Revelar Significado
+  </button>
+
+  <button id="fav-btn" aria-label="Agregar a favoritos" class="reveal-btn" title="Guardar en favoritos y ver lista">
+    <i class="bi bi-star"></i>
+    <span class="fav-count" aria-label="Número de cartas favoritas">0</span>
+  </button>
+</div>
+
+        </div>
+        <div class="centered-btn">
+  <button id="new-reading-btn" aria-label="Iniciar una nueva lectura">
+    Nueva Lectura
+  </button>
+</div>
+
+    </section>
+
+    <section id="meanings" aria-live="polite" aria-label="Significados de las cartas"></section>
+
+    <section id="card-container" aria-label="Baraja de cartas">
+      <!-- Cartas se cargarán dinámicamente aquí -->
+    </section>
+  </main>
+
+  <footer>
+  <div class="footer-content">
+    <p class="author">Desarrollado por Ana Lucía Silva Córdoba</p>
+    <div class="social-icons">
+      <a href="https://github.com/tuusuario" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="https://linkedin.com/in/ana-lucia-silva-córdoba" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+  <script type="module" src="scripts/main.js"></script>
+  <script type="module" src="scripts/api.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/utils.js"></script>
+
+
+</body>
+</html>

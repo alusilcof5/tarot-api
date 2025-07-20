@@ -1,0 +1,27 @@
+ body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #4c2564;
+        }
+        pre {
+            background-color: #eaeaea;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            text-align: left;
+        }
+        code {
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .endpoint {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación de la API de Sakura Tarot</title>
+    <link rel="stylesheet" href="../css/documentation.css"> 
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <header>
+  <div class="header-content" style="display: flex; align-items: center; justify-content: space-between;">
+    <!-- Logo enlazado a index.html -->
+    <a href="index.html" aria-label="Volver a la página principal">
+      <img src="../assets/logo.png" alt="Logo Sakura" class="logo" style="height: 50px;" />
+    </a>
+
+    <!-- Navegación -->
+    <nav>
+      <ul style="list-style: none; display: flex; gap: 1.5em; margin: 0; padding: 0;">
+        <li>
+          <a href="../pages/favorites.html" class="nav-link" aria-label="Página de Favoritos">Favoritos</a>
+        </li>
+        <li>
+          <a href="../pages/documentation.html" class="nav-link" aria-label="Página de Documentación">Documentación</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <h1>Documentación de la API de Sakura Tarot</h1>
+
+    <h2>Introducción</h2>
+    <p>La API de Sakura Tarot permite a los usuarios acceder a un conjunto de cartas de tarot, realizar lecturas y obtener significados de las cartas. Esta documentación te guiará sobre cómo utilizar la API y cómo se ha integrado en la aplicación.</p>
+
+    <h2>Endpoints</h2>
+
+    <div class="endpoint">
+        <h3>1. Obtener Todas las Cartas</h3>
+        <p><strong>URL:</strong> <code>/api/cards</code></p>
+        <p><strong>Método:</strong> <code>GET</code></p>
+        <p><strong>Descripción:</strong> Este endpoint devuelve una lista de todas las cartas de tarot disponibles.</p>
+
+        <h4>Respuesta</h4>
+        <p><strong>Código de estado:</strong> <code>200 OK</code></p>
+        <pre><code>
+[
+    {
+        "id": 1,
+        "name": "El Mago",
+        "image": "assets/cards/mago.png",
+        "meaning": "Representa la habilidad y la destreza."
+    },
+    {
+        "id": 2,
+        "name": "La Sacerdotisa",
+        "image": "assets/cards/sacerdotisa.png",
+        "meaning": "Simboliza la intuición y el conocimiento."
+    }
+    // ... más cartas
+]
+        </code></pre>
+    </div>
+
+    <div class="endpoint">
+        <h3>2. Obtener Cartas Aleatorias</h3>
+        <p><strong>URL:</strong> <code>/api/cards/random</code></p>
+        <p><strong>Método:</strong> <code>GET</code></p>
+        <p><strong>Descripción:</strong> Este endpoint devuelve un número específico de cartas seleccionadas aleatoriamente.</p>
+
+        <h4>Parámetros</h4>
+        <p><code>count</code>: (opcional) Número de cartas a devolver. Por defecto, se devuelve 3 cartas.</p>
+
+        <h4>Respuesta</h4>
+        <p><strong>Código de estado:</strong> <code>200 OK</code></p>
+        <pre><code>
+[
+    {
+        "id": 3,
+        "name": "La Emperatriz",
+        "image": "assets/cards/emperatriz.png",
+        "meaning": "Representa la fertilidad y la abundancia."
+    }
+    // ... más cartas
+]
+        </code></pre>
+    </div>
+
+    <h2>Cómo Consumir la API</h2>
+
+    <h3>Cargar Todas las Cartas</h3>
+    <pre><code>
+async function loadCards() {
+    try {
+        const cards = await getAllCards(); // Llama a la API para obtener todas las cartas
+        appState.allCards = shuffleArray(cards); // Almacena las cartas en el estado de la aplicación
+        console.log(`Cargadas ${cards.length} cartas de Sakura`);
+    } catch (error) {
+        console.error('Error al cargar cartas:', error);
+        appState.allCards = createDummyCards(); // Usa cartas de respaldo si hay un error
+    }
+}
+    </code></pre>
+
+    <h3>Obtener Cartas Aleatorias</h3>
+    <pre><code>
+async function getRandomCards(count = 3) {
+    try {
+        const response = await fetch(`/api/cards/random?count=${count}`);
+        if (!response.ok) {
+            throw new Error('Error al obtener cartas aleatorias');
+        }
+        return await response.json(); // Retorna las cartas aleatorias
+    } catch (error) {
+        console.error('Error en la solicitud:', error);
+        return []; // Retorna un array vacío en caso de error
+    }
+}
+    </code></pre>
+
+    <h2>Manejo de Errores</h2>
+    <p>Es importante manejar los errores al consumir la API. Se utilizan bloques <code>try-catch</code> para capturar errores y mostrar mensajes apropiados al usuario.</p>
+
+    <h2>Conclusión</h2>
+    <p>La API de Sakura Tarot proporciona una forma sencilla de interactuar con un conjunto de cartas de tarot. Puedes utilizar los endpoints para obtener cartas y realizar lecturas, lo que enriquece la experiencia del usuario en la aplicación.</p>
+
+     <footer>
+  <div class="footer-content">
+    <p class="author">Desarrollado por Ana Lucía Silva Córdoba</p>
+    <div class="social-icons">
+      <a href="https://github.com/tuusuario" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="https://linkedin.com/in/ana-lucia-silva-córdoba" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

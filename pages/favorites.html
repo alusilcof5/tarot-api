@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Favoritos - Sakura Tarot</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="../index.html" aria-label="Volver a la página principal">
+        <img src="../assets/logo.png" alt="Logo Sakura" class="logo" />
+      </a>
+      <nav>
+        <ul>
+           <!-- <li>
+          <a href="./pages/favorites.html" class="nav-link" aria-label="Página de Favoritos">Favoritos</a>
+        </li> -->
+          <li><a href="documentation.html" class="nav-link">Documentación</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="favorites-list" aria-label="Lista de lecturas favoritas">
+      <h2>Lecturas guardadas</h2>
+      <div id="saved-readings" style="max-width: 1300px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        <!-- Aquí se cargarán las lecturas favoritas -->
+      </div>
+      <div class="centered-btn" style="margin-top: 2rem;">
+        <button id="clear-favorites-btn" aria-label="Eliminar todas las lecturas favoritas">Eliminar todas</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p class="author">Desarrollado por Ana Lucía Silva Córdoba</p>
+      <div class="social-icons">
+        <a href="https://github.com/tuusuario" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://linkedin.com/in/ana-lucia-silva-córdoba" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/utils.js"></script>
+    <script src="../scripts/favorites.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/utils.js"></script>
+</body>
+</html>
